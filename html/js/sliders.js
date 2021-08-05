@@ -18,6 +18,23 @@ const microphoneCircle = doc.getElementById('microphone')
 const idCircle = doc.getElementById('id')
 const cinemaId = doc.getElementById('cinematic')
 
+// Custom stuff
+const checkLogo = doc.getElementById('check-logo')
+const checkName = doc.getElementById('check-name')
+const checkMoney = doc.getElementById('check-money')
+const checkJob = doc.getElementById('check-job')
+const checkBlack = doc.getElementById('check-black')
+const checkBank = doc.getElementById('check-bank')
+const checkPlayers = doc.getElementById('check-players')
+
+const idLogo = doc.getElementById('sv-logo')
+const idName = doc.getElementById('sv-name')
+const idBlack = doc.getElementById('sv-black')
+const idJob = doc.getElementById('sv-job')
+const idMoney = doc.getElementById('sv-money')
+const idBank = doc.getElementById('sv-bank')
+const idPlayers = doc.getElementById('sv-players')
+
 // Framework stuff
 const checkHunger = doc.getElementById('check-hunger')
 const checkThirst = doc.getElementById('check-thirst')
@@ -33,8 +50,8 @@ const stressCircle = doc.getElementById('stress')
 const stressSlider = doc.getElementById('slider-stress')
 const stressOption = doc.getElementById('stress-option')
 
-let health, armor, stamina, oxygen, microphone, id, hunger, thirst, stress;
-health = armor = stamina = oxygen = microphone = id = hunger = thirst = stress = true;
+let health, armor, stamina, oxygen, microphone, id, hunger, thirst, stress, svLogo, svName, svBlack, svJob, svMoney, svBank, svPlayers;
+health = armor = stamina = oxygen = microphone = id = hunger = thirst = stress = svLogo = svName = svBlack = svJob = svMoney = svBank = svPlayers = true;
 
 let cinematic = false;
 
@@ -112,6 +129,70 @@ window.addEventListener('load', () => {
         idCircle.style.display = 'none';
       }
     })
+
+    // Custom stuff
+    checkLogo.addEventListener('click', () => {
+      svLogo = checkLogo.checked
+      if (svLogo) {
+        idLogo.style.display = 'flex'
+      } else {
+        idLogo.style.display = 'none'
+      }
+    })
+
+    checkName.addEventListener('click', () => {
+      svName = checkName.checked
+      if (svName) {
+        idName.style.display = 'flex'
+      } else {
+        idName.style.display = 'none'
+      }
+    })
+
+    checkMoney.addEventListener('click', () => {
+      svMoney = checkMoney.checked
+      if (svMoney) {
+        idMoney.style.display = 'flex'
+      } else {
+        idMoney.style.display = 'none'
+      }
+    })
+
+    checkBank.addEventListener('click', () => {
+      svBank = checkBank.checked
+      if (svBank) {
+        idBank.style.display = 'flex'
+      } else {
+        idBank.style.display = 'none'
+      }
+    })
+
+    checkBlack.addEventListener('click', () => {
+      svBlack = checkBlack.checked
+      if (svBlack) {
+        idBlack.style.display = 'flex'
+      } else {
+        idBlack.style.display = 'none'
+      }
+    })
+
+    checkJob.addEventListener('click', () => {
+      svJob = checkJob.checked
+      if (svJob) {
+        idJob.style.display = 'flex'
+      } else {
+        idJob.style.display = 'none'
+      }
+    })
+
+    checkPlayers.addEventListener('click', () => {
+      svPlayers = checkPlayers.checked
+      if (svPlayers) {
+        idPlayers.style.display = 'flex'
+      } else {
+        idPlayers.style.display = 'none'
+      }
+    })
   
     if (Config.useFramework) {
       checkHunger.addEventListener('click', () => {
@@ -176,6 +257,49 @@ const setCircles = (boolean)=> {
         } else {
             microphoneCircle.style.display = 'none'
         }
+
+        // Custom
+        if (svLogo) {
+          idLogo.style.display = 'flex';
+        } else {
+          idLogo.style.display = 'none'
+        }
+
+        if (svName) {
+          idName.style.display = 'flex';
+        } else {
+          idName.style.display = 'none'
+        }
+
+        if (svBlack) {
+          idBlack.style.display = 'flex';
+        } else {
+          idBlack.style.display = 'none'
+        }
+
+        if (svJob) {
+          idJob.style.display = 'flex';
+        } else {
+          idJob.style.display = 'none'
+        }
+
+        if (svMoney) {
+          idMoney.style.display = 'flex';
+        } else {
+          idMoney.style.display = 'none'
+        }
+
+        if (svBank) {
+          idBank.style.display = 'flex';
+        } else {
+          idBank.style.display = 'none'
+        }
+
+        if (svPlayers) {
+          idPlayers.style.display = 'flex';
+        } else {
+          idPlayers.style.display = 'none'
+        }
         if (Config.useFramework) {
             if (hunger) {
                 hungerCircle.style.display = 'inline-block';
@@ -203,6 +327,14 @@ const setCircles = (boolean)=> {
         oxygenCircle.style.display = 'none'
         idCircle.style.display = 'none'
         microphoneCircle.style.display = 'none'
+
+        idLogo.style.display = 'none'
+        idName.style.display = 'none'
+        idBlack.style.display = 'none'
+        idJob.style.display = 'none'
+        idMoney.style.display = 'none'
+        idBank.style.display = 'none'
+        idPlayers.style.display = 'none'
         if (Config.useFramework) {
           hungerCircle.style.display = 'none'
           thirstCircle.style.display = 'none'

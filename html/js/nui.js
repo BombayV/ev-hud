@@ -3,8 +3,8 @@ const alertNoti = doc.querySelector('.alert')
 const soundNoti = doc.getElementById('audio')
 const colorPicker = doc.querySelector('.colorpicker')
 
-let dragHealthTop, dragHealthLeft, dragArmorTop, dragArmorLeft, dragStaminaTop, dragStaminaLeft, dragOxygenTop, dragOxygenLeft, dragMicrophoneTop, dragMicrophoneLeft, dragIdTop, dragIdLeft, dragHungerTop, dragHungerLeft, dragThirstTop, dragThirstLeft, dragStressTop, dragStressLeft;
-dragHealthTop = dragHealthLeft = dragArmorTop = dragArmorLeft = dragStaminaTop = dragStaminaLeft = dragOxygenTop = dragOxygenLeft = dragMicrophoneTop = dragMicrophoneLeft = dragIdTop = dragIdLeft = dragHungerTop = dragHungerLeft = dragThirstTop = dragThirstLeft = dragStressTop = dragStressLeft = 0;
+let dragHealthTop, dragHealthLeft, dragArmorTop, dragArmorLeft, dragStaminaTop, dragStaminaLeft, dragOxygenTop, dragOxygenLeft, dragMicrophoneTop, dragMicrophoneLeft, dragIdTop, dragIdLeft, dragHungerTop, dragHungerLeft, dragThirstTop, dragThirstLeft, dragStressTop, dragStressLeft, dragSvLogoTop, dragSvLogoLeft, dragSvNameTop, dragSvNameLeft, dragSvBlackTop, dragSvBlackLeft, dragSvJobTop, dragSvJobLeft, dragSvMoneyTop, dragSvMoneyLeft, dragSvBankTop, dragSvBankLeft, dragSvPlayersTop, dragSvPlayersLeft;
+dragHealthTop = dragHealthLeft = dragArmorTop = dragArmorLeft = dragStaminaTop = dragStaminaLeft = dragOxygenTop = dragOxygenLeft = dragMicrophoneTop = dragMicrophoneLeft = dragIdTop = dragIdLeft = dragHungerTop = dragHungerLeft = dragThirstTop = dragThirstLeft = dragStressTop = dragStressLeft = dragSvLogoTop = dragSvLogoLeft = dragSvNameTop = dragSvNameLeft = dragSvBlackTop = dragSvBlackLeft = dragSvJobTop = dragSvJobLeft = dragSvMoneyTop = dragSvMoneyLeft = dragSvBankTop = dragSvBankLeft = dragSvPlayersTop = dragSvPlayersLeft= 0;
 
 // Dark mode
 document.querySelector('.invert-btn').addEventListener('click', () => {
@@ -118,6 +118,41 @@ $("#microphone").on("dragstop", function(event, ui) {
     dragMicrophoneLeft = ui.position.left;
 });
 
+$("#sv-logo").on("dragstop", function(event, ui) {
+    dragSvLogoTop = ui.position.top;
+    dragSvLogoLeft = ui.position.left;
+});
+
+$("#sv-name").on("dragstop", function(event, ui) {
+    dragSvNameTop = ui.position.top;
+    dragSvNameLeft = ui.position.left;
+});
+
+$("#sv-job").on("dragstop", function(event, ui) {
+    dragSvJobTop = ui.position.top;
+    dragSvJobLeft = ui.position.left;
+});
+
+$("#sv-black").on("dragstop", function(event, ui) {
+    dragSvBlackTop = ui.position.top;
+    dragSvBlackLeft = ui.position.left;
+});
+
+$("#sv-money").on("dragstop", function(event, ui) {
+    dragSvMoneyTop = ui.position.top;
+    dragSvMoneyLeft = ui.position.left;
+});
+
+$("#sv-bank").on("dragstop", function(event, ui) {
+    dragSvBankTop = ui.position.top;
+    dragSvBankLeft = ui.position.left;
+});
+
+$("#sv-players").on("dragstop", function(event, ui) {
+    dragSvPlayersTop = ui.position.top;
+    dragSvPlayersLeft = ui.position.left;
+});
+
 if (Config.useFramework) {
     $("#hunger").on("dragstop", function(event, ui) {
         dragHungerTop = ui.position.top;
@@ -154,6 +189,21 @@ const saveData = ()=> {
     saveId('dragIdLeft', dragIdLeft);
     saveId('dragMicrophoneTop', dragMicrophoneTop);
     saveId('dragMicrophoneLeft', dragMicrophoneLeft);
+
+    saveId('svLogoTop', dragSvLogoTop);
+    saveId('svLogoLeft', dragSvLogoLeft);
+    saveId('svNameTop', dragSvNameTop);
+    saveId('svNameLeft', dragSvNameLeft);
+    saveId('svJobTop', dragSvJobTop);
+    saveId('svJobLeft', dragSvJobLeft);
+    saveId('svBlackTop', dragSvBlackTop);
+    saveId('svBlackLeft', dragSvBlackLeft);
+    saveId('svMoneyTop', dragSvMoneyTop);
+    saveId('svMoneyLeft', dragSvMoneyLeft);
+    saveId('svBankTop', dragSvBankTop);
+    saveId('svBankLeft', dragSvBankLeft);
+    saveId('svPlayersTop', dragSvPlayersTop);
+    saveId('svPlayersLeft', dragSvPlayersLeft);
     if (Config.useFramework) {
         saveId('dragHungerTop', dragHungerTop);
         saveId('dragHungerLeft', dragHungerLeft);
@@ -171,6 +221,14 @@ const saveData = ()=> {
     saveId('sliderOxygen', oxygen);
     saveId('sliderMicrophone', microphone);
     saveId('sliderId', id);
+
+    saveId('sliderSvLogo', svLogo);
+    saveId('sliderSvName', svName);
+    saveId('sliderSvBlack', svBlack);
+    saveId('sliderSvJob', svJob);
+    saveId('sliderSvMoney', svMoney);
+    saveId('sliderSvBank', svBank);
+    saveId('sliderSvPlayers', svPlayers);
     if (Config.useFramework) {
         saveId('sliderHunger', hunger);
         saveId('sliderThirst', thirst);
@@ -199,6 +257,28 @@ const resetDrag = ()=> {
     $("#id").animate({ top: "0px", left: "0px" });
     saveId('dragIdTop', '0px');
     saveId('dragIdLeft', '0px');
+
+    $('#sv-name').animate({ top: "0px", left: "0px" });
+    $('#sv-black').animate({ top: "0px", left: "0px" });
+    $('#sv-job').animate({ top: "0px", left: "0px" });
+    $('#sv-money').animate({ top: "0px", left: "0px" });
+    $('#sv-bank').animate({ top: "0px", left: "0px" });
+    $('#sv-players').animate({ top: "0px", left: "0px" });
+    $('#sv-logo').animate({ top: "0px", left: "0px" });
+    saveId('svLogoTop', '0px');
+    saveId('svLogoLeft', '0px');
+    saveId('svNameTop', '0px');
+    saveId('svNameLeft', '0px');
+    saveId('svJobTop', '0px');
+    saveId('svJobLeft', '0px');
+    saveId('svMoneyTop', '0px');
+    saveId('svMoneyLeft', '0px');
+    saveId('svBankTop', '0px');
+    saveId('svBankLeft', '0px');
+    saveId('svBlackTop', '0px');
+    saveId('svBlackLeft', '0px');
+    saveId('svPlayersTop', '0px');
+    saveId('svPlayersLeft', '0px');
     if (Config.useFramework) {
         $("#hunger").animate({top: "0px", left: "0px"});
         saveId('dragHungerTop', '0px');
@@ -229,6 +309,13 @@ const resetColors = ()=> {
     saveId('microphoneColor', '');
     $('#id-circle').css('stroke', '');
     saveId('idColor', '');
+    $('#sv-name').css('color', '')
+    $('#sv-black').css('color', '')
+    $('#sv-job').css('color', '')
+    $('#sv-money').css('color', '')
+    $('#sv-bank').css('color', '')
+    $('#sv-players').css('color', '')
+    saveId('textColor', '')
     if (Config.useFramework) {
         $('#hunger-circle').css('stroke', '');
         saveId('hungerColor', '');
