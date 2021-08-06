@@ -92,7 +92,7 @@ end)
 RegisterNetEvent('ev:setInfo', function(info)
 	print(json.encode(info))
 	SendNUIMessage({
-		action = "status"
+		action = "status",
 		hunger = info.hunger,
 		thirst = info.thirst,
 		job = info.job,
