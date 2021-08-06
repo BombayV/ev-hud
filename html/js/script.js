@@ -31,7 +31,7 @@ window.addEventListener("message", function(event) {
       $("#time").text(event.data.time);
     break;
 
-    case "hud":
+    case "status":
       progressCircle(event.data.hunger, ".hunger");
       progressCircle(event.data.thirst, ".thirst");
       $("#sv-black").text(event.data.blackMoney);
