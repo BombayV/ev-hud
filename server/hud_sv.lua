@@ -8,8 +8,8 @@ RegisterNetEvent('ev:getServerInfo', function()
 	local player = vRP.getUserSource({playerID})
 
 	local info = {
-		hunger = vRP.getHunger({playerID}),
-		thirst = vRP.getThirst({playerID}),
+		hunger = math.ceil(100 - vRP.getHunger({playerID}},
+		thirst = math.ceil(100 - vRP.getThirst({playerID}},
 
 		job = vRP.getUserGroupByType({playerID, 'job'}),
 
@@ -18,6 +18,5 @@ RegisterNetEvent('ev:getServerInfo', function()
 		blackMoney = vRP.getInventoryItemAmount({playerID, 'black_money'}),
         players = #GetPlayers()
 	}
-	print(json.encode(info))
 	TriggerClientEvent('ev:setInfo', player, info) 
 end)
