@@ -63,7 +63,7 @@ CreateThread(function()
 				action = "hud",
 				health = health,
 				armor = armor,
-				thirst = thirst,
+				stamina = stamina,
 				oxygen = oxygen,
 				id = id,
 				players = players,
