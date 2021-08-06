@@ -8,8 +8,8 @@ RegisterNetEvent('ev:getServerInfo', function()
 	local player = vRP.getUserSource({playerID})
 
 	local info = {
-		hunger = math.ceil(100 - vRP.getHunger({playerID}}),
-		thirst = math.ceil(100 - vRP.getThirst({playerID}}),
+		hunger = math.ceil(100 - vRP.getHunger({playerID}),
+		thirst = math.ceil(100 - vRP.getThirst({playerID}),
 
 		job = vRP.getUserGroupByType({playerID, 'job'}),
 
