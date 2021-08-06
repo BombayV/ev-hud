@@ -35,13 +35,16 @@ window.addEventListener("message", function(event) {
       progressCircle(event.data.players, ".id");
       $("#idnumber").text(event.data.id);
       $("#time").text(event.data.time);
-      if (Config.useFramework) {
-        progressCircle(event.data.hunger, ".hunger");
-        progressCircle(event.data.thirst, ".thirst");
-        if (Config.useStress) {
-          progressCircle(event.data.stress, ".stress");
-        };
-      };
+    break;
+
+    case "hud":
+      progressCircle(event.data.hunger, ".hunger");
+      progressCircle(event.data.thirst, ".thirst");
+      $("#sv-black").text(event.data.blackMoney);
+      $("#sv-job").text(event.data.job);
+      $("#sv-money").text(event.data.money);
+      $("#sv-bank").text(event.data.bank);
+      $("#sv-players").text(event.data.players);
     break;
 
     case "isPaused":

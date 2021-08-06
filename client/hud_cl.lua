@@ -57,52 +57,13 @@ CreateThread(function()
 		if (hours <= 9) then
 			hours = "0" .. hours
 		end
-		if Config.useESX and not Config.useStress then
+
+		if Config.useCustom then
 			SendNUIMessage({
 				action = "hud",
 				health = health,
 				armor = armor,
-				stamina = stamina,
-				hunger = hunger,
 				thirst = thirst,
-				oxygen = oxygen,
-				id = id,
-				players = players,
-				time = hours .. ":" .. minutes
-			})
-		elseif Config.useESX and Config.useStress then
-			SendNUIMessage({
-				action = "hud",
-				health = health,
-				armor = armor,
-				stamina = stamina,
-				hunger = hunger,
-				thirst = thirst,
-				stress = stress,
-				oxygen = oxygen,
-				id = id,
-				players = players,
-				time = hours .. ":" .. minutes
-			})
-		elseif Config.usevRP then
-			SendNUIMessage({
-				action = "hud",
-				health = vRP.getHealth(),
-				armor = vRP.getArmour(),
-				stamina = stamina,
-				hunger = vRP.getHunger(),
-				thirst = vRP.getThirst(),
-				oxygen = oxygen,
-				id = vRP.getUserId(),
-				players = players,
-				time = hours .. ":" .. minutes
-			})
-		else
-			SendNUIMessage({
-				action = "hud",
-				health = health,
-				armor = armor,
-				stamina = stamina,
 				oxygen = oxygen,
 				id = id,
 				players = players,
@@ -119,6 +80,26 @@ CreateThread(function()
 		end
 		Wait(Config.waitTime)
 	end
+end)
+
+CreateThread(function()
+	while true do
+		TriggerServerEvent('ev:getServerInfo')
+		Wait(2000)
+	end
+end)
+
+RegisterNetEvent('ev:setInfo', function(info)
+	SendNUIMessage({
+		action = "status"
+		hunger = info.hunger,
+		thirst = info.thirst,
+		job = info.job,
+		money = info.money,
+		bank = info.bankMoney,
+		blackMoney = info.blackMoney,
+		players = info.players .. '/300'
+	})
 end)
 
 CreateThread(function()
