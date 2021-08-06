@@ -1,3 +1,9 @@
+local CreateThread = CreateThread
+local Wait = Wait
+local PlayerPedId = PlayerPedId
+local PlayerId = PlayerId
+local GetEntityHealth = GetEntityHealth
+
 -- Variables
 local isOpen, isPaused
 local whisper, normal, shout = 33, 66, 100
@@ -36,6 +42,36 @@ if Config.useESX then
 		end
 	end)
 end
+
+CreateThread(function()
+    RequestStreamedTextureDict("circlemap", false)
+    while not HasStreamedTextureDictLoaded("circlemap") do
+        Wait(100)
+    end
+
+    AddReplaceTexture("platform:/textures/graphics", "radarmasksm", "circlemap", "radarmasksm")
+
+    SetMinimapClipType(1)
+    SetMinimapComponentPosition("minimap", "L", "B", 0.025, -0.03, 0.153, Config.mapZoom)
+    SetMinimapComponentPosition("minimap_mask", "L", "B", 0.135, 0.12, 0.093, 0.164)
+    SetMinimapComponentPosition("minimap_blur", "L", "B", 0.012, 0.022, 0.256, 0.337)
+
+    local minimap = RequestScaleformMovie("minimap")
+
+    SetRadarBigmapEnabled(true, false)
+    Wait(100)
+    SetRadarBigmapEnabled(false, false)
+
+    Wait(1000)
+
+    
+    while true do
+        Wait(0)
+        BeginScaleformMovieMethod(minimap, "SETUP_HEALTH_ARMOUR")
+        ScaleformMovieMethodAddParamInt(3)
+        EndScaleformMovieMethod()
+    end
+end)
 
 -- Main Thread
 CreateThread(function()
@@ -90,7 +126,6 @@ CreateThread(function()
 end)
 
 RegisterNetEvent('ev:setInfo', function(info)
-	print(json.encode(info))
 	SendNUIMessage({
 		action = "status",
 		hunger = info.hunger,
