@@ -35,14 +35,14 @@ window.addEventListener("message", function(event) {
     break;
 
     case "status":
-      $("#idnumber").text(event.data.id);
+      $("#idnumber-text").text(event.data.id);
       progressCircle(event.data.hunger, ".hunger");
       progressCircle(event.data.thirst, ".thirst");
-      $("#sv-black").text(numberWithCommas(event.data.blackMoney));
+      $("#sv-black-text").text(numberWithCommas(event.data.blackMoney));
       $("#sv-job").text(event.data.job);
-      $("#sv-money").text(numberWithCommas(event.data.money));
-      $("#sv-bank").text(numberWithCommas(event.data.bank));
-      $("#sv-players").text(event.data.players);
+      $("#sv-money-text").text(numberWithCommas(event.data.money));
+      $("#sv-bank-text").text(numberWithCommas(event.data.bank));
+      $("#sv-players-text").text(event.data.players);
     break;
 
     case "isPaused":
