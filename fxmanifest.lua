@@ -15,7 +15,7 @@ client_scripts {
 
 server_scripts {
 	"@vrp/lib/utils.lua",
-	'hud_sv.lua'
+	'server/hud_sv.lua'
 }
 
 ui_page 'html/ui.html'
