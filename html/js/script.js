@@ -3,7 +3,6 @@ const selection = doc.getElementById('selection')
 // Load draggable
 window.addEventListener('load', () => {
   frameworkStartUp();
-  startPhone()
 });
 
 // Switches & Cases
