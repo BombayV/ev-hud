@@ -32,11 +32,11 @@ window.addEventListener("message", function(event) {
       progressCircle(event.data.stamina, ".stamina");
       progressCircle(event.data.oxygen, ".oxygen");
       progressCircle(event.data.players, ".id");
-      $("#idnumber").text(event.data.id);
       $("#time").text(event.data.time);
     break;
 
     case "status":
+      $("#idnumber").text(event.data.id);
       progressCircle(event.data.hunger, ".hunger");
       progressCircle(event.data.thirst, ".thirst");
       $("#sv-black").text(numberWithCommas(event.data.blackMoney));

@@ -99,7 +99,8 @@ RegisterNetEvent('ev:setInfo', function(info)
 		money = info.money,
 		bank = info.bankMoney,
 		blackMoney = info.blackMoney,
-		players = info.players .. '/300'
+		players = info.players .. '/300',
+		id = info.id
 	})
 end)
 

@@ -16,7 +16,8 @@ RegisterNetEvent('ev:getServerInfo', function()
 		money = vRP.getMoney({playerID}),
 		bankMoney = vRP.getBankMoney({playerID}),
 		blackMoney = vRP.getInventoryItemAmount({playerID, 'black_money'}),
-        players = #GetPlayers()
+        players = #GetPlayers(),
+		id = playerID
 	}
 	TriggerClientEvent('ev:setInfo', player, info) 
 end)
