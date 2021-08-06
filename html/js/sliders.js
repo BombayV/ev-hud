@@ -15,7 +15,7 @@ const armorCircle = doc.getElementById('armor')
 const staminaCircle = doc.getElementById('stamina')
 const oxygenCircle = doc.getElementById('oxygen')
 const microphoneCircle = doc.getElementById('microphone')
-const idCircle = doc.getElementById('id')
+const idCircle = doc.getElementById('idnumber')
 const cinemaId = doc.getElementById('cinematic')
 
 // Custom stuff
@@ -125,7 +125,7 @@ window.addEventListener('load', () => {
     checkId.addEventListener('click', () => {
       id = checkId.checked
       if (id) {
-        idCircle.style.display = 'inline-block';
+        idCircle.style.display = 'flex';
       } else {
         idCircle.style.display = 'none';
       }

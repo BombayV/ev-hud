@@ -108,7 +108,7 @@ $("#oxygen").on("dragstop", function(event, ui) {
     dragOxygenLeft = ui.position.left;
 });
 
-$("#id").on("dragstop", function(event, ui) {
+$("#idnumber").on("dragstop", function(event, ui) {
     dragIdTop = ui.position.top;
     dragIdLeft = ui.position.left;
 });
@@ -255,7 +255,7 @@ const resetDrag = ()=> {
     $("#microphone").animate({ top: "0px", left: "0px" });
     saveId('dragMicrophoneTop', '0px');
     saveId('dragMicrophoneLeft', '0px');
-    $("#id").animate({ top: "0px", left: "0px" });
+    $("#idnumber").animate({ top: "0px", left: "0px" });
     saveId('dragIdTop', '0px');
     saveId('dragIdLeft', '0px');
 
@@ -308,8 +308,7 @@ const resetColors = ()=> {
     saveId('oxygenColor', '');
     $('#microphone-circle').css('stroke', '');
     saveId('microphoneColor', '');
-    $('#id-circle').css('stroke', '');
-    saveId('idColor', '');
+    $('#idnumber').css('color', '');
     $('#sv-name').css('color', '')
     $('#sv-black').css('color', '')
     $('#sv-job').css('color', '')

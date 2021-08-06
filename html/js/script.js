@@ -31,7 +31,6 @@ window.addEventListener("message", function(event) {
       progressCircle(event.data.armor, ".armor");
       progressCircle(event.data.stamina, ".stamina");
       progressCircle(event.data.oxygen, ".oxygen");
-      progressCircle(event.data.players, ".id");
       $("#time").text(event.data.time);
     break;
 
@@ -102,7 +101,7 @@ const startDraggable = ()=> {
   $("#armor").draggable();
   $("#stamina").draggable();
   $("#oxygen").draggable();
-  $("#id").draggable();
+  $("#idnumber").draggable();
   $("#microphone").draggable();
   $("#sv-logo").draggable();
   $("#sv-name").draggable();
@@ -125,7 +124,7 @@ const startColors = ()=> {
   $('#armor-circle').css('stroke', getStored('armorColor'));
   $('#stamina-circle').css('stroke', getStored('staminaColor'));
   $('#oxygen-circle').css('stroke', getStored('oxygenColor'));
-  $('#id-circle').css('stroke', getStored('idColor'));
+  $('#idnumber').css('color', getStored('textColor'))
   $('#microphone-circle').css('stroke', getStored('microphoneColor'));
   $('#sv-name').css('color', getStored('textColor'))
   $('#sv-black').css('color', getStored('textColor'))
@@ -148,7 +147,7 @@ const startPositions = ()=> {
   $("#stamina").animate({ top: getStored('dragStaminaTop'), left: getStored('dragStaminaLeft')});
   $("#oxygen").animate({ top: getStored('dragOxygenTop'), left: getStored('dragOxygenLeft')});
   $("#microphone").animate({ top: getStored('dragMicrophoneTop'), left: getStored('dragMicrophoneLeft')});
-  $("#id").animate({ top: getStored('dragIdTop'), left: getStored('dragIdLeft')});
+  $("#idnumber").animate({ top: getStored('dragIdTop'), left: getStored('dragIdLeft')});
   $('#sv-name').animate({top: getStored('svNameTop'), left: getStored('svNameLeft')})
   $('#sv-black').animate({top: getStored('svBlackTop'), left: getStored('svBlackLeft')})
   $('#sv-job').animate({top: getStored('svJobTop'), left: getStored('svJobLeft')})
@@ -177,7 +176,7 @@ const startSliders = ()=> {
   setContainer('sliderArmor', 'check-armor', 'armor');
   setContainer('sliderStamina', 'check-stamina', 'stamina');
   setContainer('sliderOxygen', 'check-oxygen', 'oxygen');
-  setContainer('sliderId', 'check-id', 'id');
+  setContainer('sliderId', 'check-id', 'idnumber', true);
   setContainer('sliderMicrophone', 'check-microphone', 'microphone');
 
   setContainer('sliderSvLogo', 'check-logo', 'sv-logo', true);
@@ -301,10 +300,6 @@ window.addEventListener('load', ()=> {
       case "microphone-option":
         colorPicker.value = rgb2hex($('#microphone-circle').css('stroke'))
       break;
-  
-      case "id-option":
-        colorPicker.value = rgb2hex($('#id-circle').css('stroke'))
-      break;
 
       case "text-option":
         colorPicker.value = rgb2hex($('#sv-job').css('color'))
@@ -342,12 +337,8 @@ let updateColorPicker = (event)=> {
       saveId('microphoneColor', color);
     break;
 
-    case "id-option":
-      $('#id-circle').css('stroke', color);
-      saveId('idColor', color);
-    break;
-
     case "text-option":
+      $('#idnumber').css('color', color);
       $('#sv-name').css('color', color);
       $('#sv-job').css('color', color);
       $('#sv-black').css('color', color);
