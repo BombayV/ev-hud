@@ -14,6 +14,11 @@ window.addEventListener("message", function(event) {
       startColors();
       startPositions();
       startSliders();
+      if (null != getId('sliderMap')) {
+        $.post('https://ev-hud/map', JSON.stringify({map: getStored('sliderMap')}));
+      } else {
+        $.post('https://ev-hud/map', JSON.stringify({map: 'true'}));
+      }
     break;
 
     case "show":
@@ -209,6 +214,9 @@ const setSliders = ()=> {
   }
   if (null != getId('sliderMicrophone')) {
     microphone = getId('sliderMicrophone')
+  }
+  if (null != getId('sliderMap')) {
+    map = getId('sliderMap')
   }
 
   // Custom

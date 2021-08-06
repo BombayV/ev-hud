@@ -26,6 +26,7 @@ const checkJob = doc.getElementById('check-job')
 const checkBlack = doc.getElementById('check-black')
 const checkBank = doc.getElementById('check-bank')
 const checkPlayers = doc.getElementById('check-players')
+const checkMap = doc.getElementById('check-map')
 
 const idLogo = doc.getElementById('sv-logo')
 const idName = doc.getElementById('sv-name')
@@ -127,6 +128,15 @@ window.addEventListener('load', () => {
         idCircle.style.display = 'inline-block';
       } else {
         idCircle.style.display = 'none';
+      }
+    })
+
+    checkMap.addEventListener('click', () => {
+      map = checkMap.checked
+      if (map) {
+        $.post('https://ev-hud/map', JSON.stringify({map: 'true'}));
+      } else {
+        $.post('https://ev-hud/map', JSON.stringify({map: 'false'}));
       }
     })
 

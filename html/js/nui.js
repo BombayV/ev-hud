@@ -221,6 +221,7 @@ const saveData = ()=> {
     saveId('sliderOxygen', oxygen);
     saveId('sliderMicrophone', microphone);
     saveId('sliderId', id);
+    saveId('sliderMap', map);
 
     saveId('sliderSvLogo', svLogo);
     saveId('sliderSvName', svName);

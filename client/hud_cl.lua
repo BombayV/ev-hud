@@ -118,6 +118,16 @@ RegisterNUICallback('close', function()
 	end
 end)
 
+RegisterNUICallback('map', function(data)
+	if isOpen then
+		if data.map == 'true' then
+			DisplayRadar(true)
+		else
+			DisplayRadar(false)
+		end
+	end
+end)
+
 -- Opening Menu
 RegisterCommand(Config.hudCommand, function()
 	if not isOpen and not isPaused then
