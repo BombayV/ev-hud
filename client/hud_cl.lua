@@ -90,6 +90,7 @@ CreateThread(function()
 end)
 
 RegisterNetEvent('ev:setInfo', function(info)
+	print(json.encode(info))
 	SendNUIMessage({
 		action = "status"
 		hunger = info.hunger,
