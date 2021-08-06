@@ -2,7 +2,7 @@ fx_version 'cerulean'
 
 game 'gta5'
 
-version '3.0.0'
+version '1.0.0'
 
 description 'Standalone hud created by a Entity Evolution'
 
@@ -13,7 +13,7 @@ client_scripts {
 	'client/hud_cl.lua'
 }
 
-server_script {
+server_scripts {
 	"@vrp/lib/utils.lua",
 	'hud_sv.lua'
 }

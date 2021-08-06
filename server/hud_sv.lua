@@ -2,7 +2,7 @@ local Tunnel = module('vrp','lib/Tunnel')
 local Proxy = module('vrp','lib/Proxy')
 vRP = Proxy.getInterface('vRP')
 
-RegisterServerEvent('ev:getServerInfo', function()
+RegisterNetEvent('ev:getServerInfo', function()
 	local source = {source}
 	local playerID = vRP.getUserId(source)
 	local player = vRP.getUserSource({playerID})
@@ -18,6 +18,6 @@ RegisterServerEvent('ev:getServerInfo', function()
 		blackMoney = vRP.getInventoryItemAmount({playerID, 'black_money'}),
         players = #GetPlayers()
 	}
-	
+	print(json.encode(info))
 	TriggerClientEvent('ev:setInfo', player, info) 
 end)

@@ -249,8 +249,8 @@ body {
   position: absolute;
   bottom: 3%;
   right: -50%;
-  height: 80%;
-  width: 25%;
+  height: 65%;
+  width: 22%;
 }
 
 .image-container {
@@ -266,15 +266,15 @@ body {
 
 .image-panel {
   display: flex;
-  width: 40vh;
+  width: 35vh;
   height: 100%;
   z-index: 4;
 }
 
 .image-panel-background {
   position: absolute;
-  width: 40vh;
-  height: auto;
+  width: 35vh;
+  height: 100%;
   filter: invert(var(--background));
   z-index: 4;
 }
@@ -320,7 +320,7 @@ body {
   position: absolute;
   width: 5vh;
   height: 2vh;
-  transform: translate(-260%, 200%);
+  transform: translate(-220%, 170%);
   z-index: 5;
 }
 
@@ -362,7 +362,7 @@ body {
 .image-wrapper {
   position: absolute;
   top: 13%;
-  width: 33.5vh;
+  width: 28.5vh;
   height: 80%;
   border-radius: 12px;
   overflow-y: scroll;
