@@ -51,8 +51,8 @@ const stressCircle = doc.getElementById('stress')
 const stressSlider = doc.getElementById('slider-stress')
 const stressOption = doc.getElementById('stress-option')
 
-let health, armor, stamina, oxygen, microphone, id, hunger, thirst, stress, svLogo, svName, svBlack, svJob, svMoney, svBank, svPlayers;
-health = armor = stamina = oxygen = microphone = id = hunger = thirst = stress = svLogo = svName = svBlack = svJob = svMoney = svBank = svPlayers = true;
+let health, armor, stamina, oxygen, microphone, id, hunger, thirst, stress, map, svLogo, svName, svBlack, svJob, svMoney, svBank, svPlayers;
+health = armor = stamina = oxygen = microphone = id = hunger = thirst = stress = map = svLogo = svName = svBlack = svJob = svMoney = svBank = svPlayers = true;
 
 let cinematic = false;
 
