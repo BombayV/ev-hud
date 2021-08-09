@@ -16,8 +16,14 @@ window.addEventListener("message", function(event) {
       startSliders();
       if (null != getId('sliderMap')) {
         $.post('https://ev-hud/map', JSON.stringify({map: getStored('sliderMap')}));
+        if (getStored('sliderMap')) {
+          doc.getElementById('compass-round').style.display = 'block';
+        } else {
+          doc.getElementById('compass-round').style.display = 'none';
+        }
       } else {
         $.post('https://ev-hud/map', JSON.stringify({map: 'true'}));
+        doc.getElementById('compass-round').style.display = 'block';
       }
     break;
 

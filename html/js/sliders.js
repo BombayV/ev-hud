@@ -134,8 +134,10 @@ window.addEventListener('load', () => {
     checkMap.addEventListener('click', () => {
       map = checkMap.checked
       if (map) {
+        doc.getElementById('compass-round').style.display = 'none';
         $.post('https://ev-hud/map', JSON.stringify({map: 'true'}));
       } else {
+        doc.getElementById('compass-round').style.display = 'block';
         $.post('https://ev-hud/map', JSON.stringify({map: 'false'}));
       }
     })
@@ -266,6 +268,12 @@ const setCircles = (boolean)=> {
             microphoneCircle.style.display = 'inline-block';
         } else {
             microphoneCircle.style.display = 'none'
+        }
+
+        if (map) {
+          doc.getElementById('compass-round').style.display = 'block';
+        } else {
+          doc.getElementById('compass-round').style.display = 'none';
         }
 
         // Custom
