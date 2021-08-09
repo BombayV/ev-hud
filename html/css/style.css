@@ -108,6 +108,14 @@ body {
   }
 }
 
+/* Rounded map */
+.compass-round {
+  position: absolute;
+  bottom: 5%;
+  left: 2%;
+  width: 25vh;
+  height: 25vh;
+}
 
 /* Hud */
 .wrapper {

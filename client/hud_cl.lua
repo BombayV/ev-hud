@@ -73,6 +73,16 @@ CreateThread(function()
     end
 end)
 
+CreateThread(function()
+	while true do
+		Wait(5)
+		SendNUIMessage({
+			action = "updateRotation",
+			rotation = GetGameplayCamRot().z
+		})
+	end
+end)
+
 -- Main Thread
 CreateThread(function()
 	while true do

@@ -82,6 +82,10 @@ window.addEventListener("message", function(event) {
     case "microphone":
       progressCircle(event.data.microphone, ".microphone");
     break;
+
+    case "updateRotation":
+      $('#compass-round').css('transform', 'rotate(' + parseFloat(event.data.rotation).toFixed(2) + 'deg)');
+    break;
   }
 });
 
