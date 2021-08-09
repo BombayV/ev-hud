@@ -16,14 +16,8 @@ window.addEventListener("message", function(event) {
       startSliders();
       if (null != getId('sliderMap')) {
         $.post('https://ev-hud/map', JSON.stringify({map: getStored('sliderMap')}));
-        if (getStored('sliderMap')) {
-          doc.getElementById('compass-round').style.display = 'block';
-        } else {
-          doc.getElementById('compass-round').style.display = 'none';
-        }
       } else {
         $.post('https://ev-hud/map', JSON.stringify({map: 'true'}));
-        doc.getElementById('compass-round').style.display = 'block';
       }
     break;
 
@@ -67,6 +61,7 @@ window.addEventListener("message", function(event) {
       idMoney.style.display = 'none';
       idBank.style.display = 'none';
       idPlayers.style.display = 'none';
+      doc.getElementById('compass-round').style.display = 'none';
       if (Config.useFramework) {
         hungerCircle.style.display = 'none';
         thirstCircle.style.display = 'none';
@@ -196,6 +191,7 @@ const startSliders = ()=> {
   setContainer('sliderSvMoney', 'check-money', 'sv-money', true);
   setContainer('sliderSvBank', 'check-bank', 'sv-bank', true);
   setContainer('sliderSvPlayers', 'check-players', 'sv-players', true);
+  setContainer('sliderMap', 'check-map', 'compass-round')
   if (Config.useFramework) {
     setContainer('sliderHunger', 'check-hunger', 'hunger');
     setContainer('sliderThirst', 'check-thirst', 'thirst');

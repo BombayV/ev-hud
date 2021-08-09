@@ -134,10 +134,10 @@ window.addEventListener('load', () => {
     checkMap.addEventListener('click', () => {
       map = checkMap.checked
       if (map) {
-        doc.getElementById('compass-round').style.display = 'none';
+        doc.getElementById('compass-round').style.display = 'block';
         $.post('https://ev-hud/map', JSON.stringify({map: 'true'}));
       } else {
-        doc.getElementById('compass-round').style.display = 'block';
+        doc.getElementById('compass-round').style.display = 'none';
         $.post('https://ev-hud/map', JSON.stringify({map: 'false'}));
       }
     })

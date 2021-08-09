@@ -112,9 +112,9 @@ body {
 .compass-round {
   position: absolute;
   bottom: 5%;
-  left: 2%;
-  width: 25vh;
-  height: 25vh;
+  left: 4.6%;
+  width: 28vh;
+  height: 28vh;
 }
 
 /* Hud */
