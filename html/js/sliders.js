@@ -260,7 +260,7 @@ const setCircles = (boolean)=> {
             oxygenCircle.style.display = 'none'
         }
         if (id) {
-            idCircle.style.display = 'inline-block';
+            idCircle.style.display = 'flex';
         } else {
             idCircle.style.display = 'none'
         }
@@ -272,8 +272,10 @@ const setCircles = (boolean)=> {
 
         if (map) {
           doc.getElementById('compass-round').style.display = 'block';
+          $.post('https://ev-hud/map', JSON.stringify({map: 'true'}));
         } else {
           doc.getElementById('compass-round').style.display = 'none';
+          $.post('https://ev-hud/map', JSON.stringify({map: 'false'}));
         }
 
         // Custom
@@ -345,6 +347,8 @@ const setCircles = (boolean)=> {
         oxygenCircle.style.display = 'none'
         idCircle.style.display = 'none'
         microphoneCircle.style.display = 'none'
+        doc.getElementById('compass-round').style.display = 'none'
+        $.post('https://ev-hud/map', JSON.stringify({map: 'false'}));
 
         idLogo.style.display = 'none'
         idName.style.display = 'none'
